@@ -13,68 +13,67 @@
         <div class="circle1"></div>
         <div class="circle2"></div>
         <div class="container">
-                <div class="button-box">
-                    <div id="btn"></div>
-                    <button class="toggle"  onclick="login()">Log In</button>
-                    <button class="toggle"  onclick="signup()">Sign Up</button>
-                </div>
+            <div class="button-box">
+                <div id="btn"></div>
+                <button class="toggle" id="log" onclick="login()">Log In</button>
+                <button class="toggle" id="sign" onclick="signup()">Sign Up</button>
+            </div>
 
-                <!-- Login -->
-                <div id="login">
-                    <div class="information">
-                        <input type="text" class="uid" placeholder="E-Mail" required>
-                        <input type="text" class="pwd" placeholder="Password" required>
+            <!-- Login -->
+            <div id="login" class="loginpage active">
+                <div class="information">
+                    <input type="text" class="uid" placeholder="E-Mail" required>
+                    <input type="text" class="pwd" placeholder="Password" required>
 
-                        <div class="remember">
-                            <div class="cbox-container">
-                                <div class="cbox"><input type="checkbox" name="remember" id=""><div class="txt">Remember Me</div></div>
-                            </div>
-                        </div>
-                        <div class="btn-container">
-                            <button class="submit">Log In</button>
+                    <div class="remember">
+                        <div class="cbox-container">
+                            <div class="cbox"><input type="checkbox" name="remember" id=""><div class="txt">Remember Me</div></div>
                         </div>
                     </div>
+                    <div class="btn-container">
+                        <button class="submit">Log In</button>
+                    </div>
                 </div>
+            </div>
                 
-                <!-- SignUp -->
-                <div id="signup">
-                    <div class="information">
-                        <input type="text" class="uid" placeholder="E-Mail" required>
-                        <input type="text" class="pwd" placeholder="Password" required>
-                        <input type="text" class="pwd" placeholder="Confirm-Password" required>
-    
-                        <div class="remember">
-                            <div class="cbox-container">
-                                <div class="cbox"><input type="checkbox" name="remember" id="">I agree to terms & conditions.</div>
-                            </div>
+            <!-- SignUp -->
+            <div id="signup" class="signpage">
+                <div class="information">
+                    <input type="text" class="uid" placeholder="E-Mail" required>
+                    <input type="text" class="pwd" placeholder="Password" required>
+                    <input type="text" class="pwd" placeholder="Confirm-Password" required>
+                    
+                    <div class="remember">
+                        <div class="cbox-container">
+                            <div class="cbox"><input type="checkbox" name="remember" id="">I agree to terms & conditions.</div>
                         </div>
-                        <div class="btn-container">
-                            <button class="submit">Sign Up</button>
-                        </div>
-                    </div>                
-                </div>
+                    </div>
+                    <div class="btn-container">
+                        <button class="submit">Sign Up</button>
+                    </div>
+                </div>                
+            </div>
+            </div>
         </div>
-        </div>
-
+    </div>
+        
         <!-- Java Script -->
         <script>
-            var x=document.getElementById("login");
-            var y=document.getElementById("signup");
-            var z=document.getElementById("btn");
+            const signbtn = document.getElementById("sign");
+            const logbtn = document.getElementById("log");
+            const logpage = document.getElementById("login");
+            const signpage = document.getElementById("signup");
 
-            function signup(){
-                x.style.left="-500px";
-                y.style.left="60px";
-                z.style.left="95px";
-            }
+            signbtn.addEventListener("click", () => {
+                logpage.classList.remove("active");
+                signpage.classList.add("active");
+            })
 
-            function login(){
-                x.style.left="-500px";
-                y.style.left="500px";
-                z.style.left="0px";
-            }
+            logbtn.addEventListener("click", () => {
+                logpage.classList.toggle("active");
+                signpage.classList.remove("active");
+            })
         </script>
 
-    </div>
 </body>
 </html>
