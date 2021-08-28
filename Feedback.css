@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #161623;
+}
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(238, 218, 43),#f00);
+    clip-path: circle(20% at 85% 70%);
+}
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(15% at 15% 20%);
+}
+
+.container{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    /* height: 80vh; */
+    width: 80vw;
+    background: rgba(255,255,255,0.2);
+    border-bottom: rgba(255,255,255,0.5) solid 2px;
+    border-right: rgba(255,255,255,0.5) solid 2px;
+    z-index: 10;
+    border-radius: 10px;
+    box-shadow: 50px 50px 50px rgba(0,0,0,0.3);
+    justify-content: center;
+    backdrop-filter: blur(15px);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+/* .container header{
+    text-align: center;
+} */
+.container header h1{
+    width: 100%;
+    color: #e6e6e6;
+    font-size: 36px;
+    text-align: center;
+    margin: 10px 0;
+}
+.container header h2{
+    width: 100%;
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.container .row100{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.container .row100 .col{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+
+.container .row100 .inputBox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+}
+
+.container .row100 .inputBox input,
+.container .row100 .inputBox.textarea textarea{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+.container .row100 .inputBox .text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .inputBox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus ~ .line,
+.container .row100 .inputBox input:valid ~ .line{
+    height: 100%;
+}
+.container .row100 .inputBox.textarea{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+
+.container .row100 .inputBox.textarea textarea{
+    height: 100%;
+    resize: none;
+}
+
+.container .row100 .inputBox textarea:focus + .text,
+.container .row100 .inputBox textarea:valid + .text{
+    top: -35px;
+    left: -10px;
+}
+.container .row100 .inputBox textarea:focus ~ .line,
+.container .row100 .inputBox textarea:valid ~ .line{
+    height: 100%;
+}
+
+input[type="submit"]{
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: rgba(200,200,200,0.3);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 2px;
+    border-bottom: #fff solid 1px;
+    border-right: #fff solid 1px;
+}
+
+.rating{
+    position: absolute;
+    top: 150%;
+    left: 25%;
+    transform: translate(-50%, -50%) rotateY(180deg);
+    display: flex;
+}
+
+.rating input{
+    display: none;
+}
+.rating label{
+    display: block;
+    cursor: pointer;
+    width: 50px;
+    /* background: #ccc; */
+}
+.rating label::before{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 50px;
+    color: #010101;
+}
+.rating label::after{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    color: #1f9cff;
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.rating label:hover::after,
+.rating label:hover ~ label::after,
+.rating input:checked ~ label::after{
+    opacity: 1;
+}
+
+.container2{
+    display: none;
+    clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+}
+
+.container2.show{
+    display: block;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+}
+
+.container1{
+    display: block;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+}
+
+.container1.none{
+    display: none;
+}
+
+.container .row100 .inputBox .line-rating{
+    position: absolute;
+    top: 200%;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox.textarea{
+    top: 50%;
+}
+
+.row100.sub{
+    position: relative;
+    margin-top: 2%;
+}
