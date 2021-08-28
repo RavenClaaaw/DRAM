@@ -117,6 +117,14 @@
   border-radius: 12px;
 }
 
+.links{
+  margin-top: -20px;
+}
+
+.links a{
+  padding: 0px 8px;
+}
+
 input{
   display: block;
   width: 280px;
